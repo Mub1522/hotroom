@@ -134,9 +134,9 @@ export default function VideoFeed({ tokenBalance, streamActive, currentAlert, on
         <div className="w-8 h-8 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-base leading-none">
           😈
         </div>
-        <div className="flex flex-col">
-          <span className="text-white text-sm font-semibold leading-tight drop-shadow">{BROADCASTER}</span>
-          <span className="text-white/50 text-xs leading-tight">¡Ven y disfruta conmigo! 🔥</span>
+        <div className="flex flex-col bg-black/30 border border-white/10 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+          <span className="text-white text-sm font-semibold leading-tight">{BROADCASTER}</span>
+          <span className="text-gray-300 text-xs leading-tight">¡Ven y disfruta conmigo! 🔥</span>
         </div>
       </div>
     </div>
