@@ -7,7 +7,7 @@ import Watermark from './components/Watermark'
 import USERNAMES from './data/usernames.json'
 import MESSAGES from './data/messages.json'
 
-export const BROADCASTER = 'sexy_online'
+export const BROADCASTER = 'AbbyPrivate'
 
 const MOD_MESSAGES = [
   'Por favor respeten las reglas del chat.',
