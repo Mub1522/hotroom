@@ -19,17 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
-      - run: pnpm install
-      - run: pnpm exec vite build
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm exec vite build
 
       - uses: actions/upload-pages-artifact@v3
         with:
