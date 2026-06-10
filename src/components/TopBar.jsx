@@ -4,7 +4,7 @@ import FollowToast from './FollowToast'
 import TokenTooltip from './TokenTooltip'
 import TokenToast from './TokenToast'
 
-export default function TopBar({ viewers, onSendTokens, onFollow, isDark, onToggleTheme }) {
+export default function TopBar({ viewers, onSendTokens, onFollow, isDark, onToggleTheme, onPhoto }) {
   const [followKey, setFollowKey] = useState(null)
   const [showTooltip, setShowTooltip] = useState(false)
   const [tokenToast, setTokenToast] = useState(null)
@@ -77,6 +77,18 @@ export default function TopBar({ viewers, onSendTokens, onFollow, isDark, onTogg
                 <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
               </svg>
             )}
+          </button>
+
+          {/* Botón foto */}
+          <button
+            onClick={onPhoto}
+            title="Tomar foto (10s)"
+            className="p-2 rounded-lg text-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-border transition-colors"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
           </button>
 
           <button

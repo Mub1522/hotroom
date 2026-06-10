@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { playTokenSound, playFollowSound } from './sounds'
 import TopBar from './components/TopBar'
+import PhotoBooth from './components/PhotoBooth'
 import VideoFeed from './components/VideoFeed'
 import ChatPanel from './components/ChatPanel'
 import Watermark from './components/Watermark'
@@ -37,6 +38,7 @@ function makeMsg(type) {
 
 export default function App() {
   const [isDark, setIsDark] = useState(true)
+  const [photoActive, setPhotoActive] = useState(false)
   const [viewers, setViewers] = useState(1247)
   const [tokenBalance, setTokenBalance] = useState(0)
   const [messages, setMessages] = useState([])
@@ -125,7 +127,9 @@ export default function App() {
   }, [pushAlert])
 
   return (
-    <div className="h-screen bg-gray-100 dark:bg-bg text-gray-900 dark:text-white font-sans flex flex-col overflow-hidden relative">
+    <>
+    <PhotoBooth active={photoActive} onClose={() => setPhotoActive(false)} />
+    <div id="hotroom-ui" className="h-screen bg-gray-100 dark:bg-bg text-gray-900 dark:text-white font-sans flex flex-col overflow-hidden relative">
       <Watermark isDark={isDark} />
       <div className="relative z-10 flex flex-col h-full">
         <TopBar
@@ -134,6 +138,7 @@ export default function App() {
           onFollow={handleFollow}
           isDark={isDark}
           onToggleTheme={() => setIsDark(d => !d)}
+          onPhoto={() => setPhotoActive(true)}
         />
 
         <main className="flex flex-1 overflow-hidden">
@@ -152,5 +157,6 @@ export default function App() {
         </main>
       </div>
     </div>
+    </>
   )
 }
